@@ -70,7 +70,8 @@ not familiar with it.
 
 The shell script `make.sh` can be used to generate PNGs and SVGs, if you're
 on a system which has `bash`.  Otherwise just use Graphviz's "`dot`"
-utility to generate them however you like.
+utility to generate them however you like.  The script will also attempt to
+compress the PNG images a bit using [OptiPNG](http://optipng.sourceforge.net/).
 
 OBSERVATIONS
 ------------
