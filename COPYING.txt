@@ -1,5 +1,5 @@
 Compiled by CJ Kucera (pez@apocalyptech.com), March 2017
-http://github.com/apocalyptech/mordormissions/
+https://github.com/apocalyptech/mordormissions/
 
 Released into public domain, or specifically CC0 1.0 Universal
 https://creativecommons.org/publicdomain/zero/1.0/

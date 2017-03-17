@@ -1,5 +1,5 @@
 // Compiled by CJ Kucera (pez@apocalyptech.com), March 2017
-// http://github.com/apocalyptech/mordormissions/
+// https://github.com/apocalyptech/mordormissions/
 //
 // Released into public domain, or specifically CC0 1.0 Universal
 // https://creativecommons.org/publicdomain/zero/1.0/
@@ -11,7 +11,7 @@ digraph hunt {
 
     labelloc = "t";
     fontsize = 25;
-    label = <<i>Shadow of Mordor: Lord of the Hunt</i> DLC mission/unlock tree (condensed)<br/><sup>http://github.com/apocalyptech/mordormissions/<br/>CC0 1.0 Universal - https://creativecommons.org/publicdomain/zero/1.0/</sup>>;
+    label = <<i>Shadow of Mordor: Lord of the Hunt</i> DLC mission/unlock tree (condensed)<br/><sup>https://github.com/apocalyptech/mordormissions/<br/>CC0 1.0 Universal - https://creativecommons.org/publicdomain/zero/1.0/</sup>>;
 
     // Main storyline missions (Torvin)
     {
