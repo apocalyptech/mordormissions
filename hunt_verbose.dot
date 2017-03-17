@@ -1,0 +1,112 @@
+// Compiled by CJ Kucera (pez@apocalyptech.com), March 2017
+// http://github.com/apocalyptech/mordormissions/
+//
+// Released into public domain, or specifically CC0 1.0 Universal
+// https://creativecommons.org/publicdomain/zero/1.0/
+
+digraph hunt {
+
+    // This version has separate nodes for mission unlocks.
+    // See hunt_condensed.dot for a version which doesn't.
+
+    labelloc = "t";
+    fontsize = 25;
+    label = <<i>Shadow of Mordor: Lord of the Hunt</i> DLC mission/unlock tree (verbose)<br/><sup>http://github.com/apocalyptech/mordormissions/<br/>CC0 1.0 Universal - https://creativecommons.org/publicdomain/zero/1.0/</sup>>;
+
+    // Main storyline missions (Torvin)
+    {
+        node [style=filled fillcolor=firebrick1];
+
+        label_main [label="Torvin"];
+
+        initial [label=<<i>Initial Mission</i>>];
+        swift [label="Swift Tracking"];
+        aggression [label="Unwarranted Aggression"];
+        matrons [label="Matrons Rising"];
+        oath [label="Hypocritical Oath"];
+    }
+
+    // Warchief Missions (bosses)
+    {
+        node [style=filled fillcolor=deepskyblue3];
+
+        label_warchief [label="Warchief Missions"];
+
+        call [label=<Call of the Caragath<br/><i>(Tûmhorn Beast Tamer)</i>>];
+        rest [label=<No Rest for the Wretched<br/><i>(Zûgor Beast Butcher)</i>>];
+        blasted [label=<Blasted Uruks!<br/><i>(Ashgarn Smuggler)</i>>];
+        homewrecker [label=<Homewrecker<br/><i>(Shágflak Ghûl Keeper)</i>>];
+        stronghold [label=<Stronghold Uprising<br/><i>(Ûgakûga Graug Rider)</i>>];
+    }
+
+    // Legend of the hunter
+    {
+        node [style=filled fillcolor=white];
+
+        label_legends [label="Legend of the Hunter"];
+
+        belching [label="Belching Monstrosity"];
+        master [label="Beast Master"];
+        feast [label="A Feast of Flesh"];
+        heaving [label="Heaving Rampage"];
+        from_hunter [label="From Hunter to Hunted"];
+    }
+
+    // Unlocks
+    {
+        node [style=filled fillcolor=green];
+
+        label_unlocks [label="Unlocks"];
+
+        caragath [label=<<i>Caragaths</i>>];
+        swiftness [label="Caragath Swiftness"];
+        bait [label="Ghûl Bait"];
+        wretched [label=<<i>Wretched Graug</i>>];
+        blazing [label="Blazing Steed"];
+        dominate_ghuls [label=<<i>Dominate Ghûls</i>>];
+        story_end [label=<<i>(Story End)</i>>];
+    }
+
+    // Key
+    subgraph cluster_key {
+        edge[style=invis];
+        label = "Key";
+        label_main -> label_warchief -> label_legends -> label_unlocks;
+    }
+
+    // Missions
+    initial -> swift;
+    initial -> aggression;
+    initial -> call;
+    initial -> matrons;
+    swift -> blasted;
+    matrons -> stronghold;
+    aggression -> rest;
+    call -> oath;
+    stronghold -> oath;
+    rest -> oath;
+    blasted -> oath;
+    oath -> homewrecker;
+
+    // Unlocks
+    initial -> caragath;
+    swift -> swiftness;
+    aggression -> wretched;
+    matrons -> bait;
+    oath -> dominate_ghuls;
+    homewrecker -> story_end;
+
+    // Legends
+    initial -> from_hunter;
+    aggression -> belching;
+    aggression -> heaving;
+    oath -> feast;
+
+    from_hunter -> master;
+    belching -> master;
+    feast -> master;
+    heaving -> master;
+
+    master -> blazing;
+
+}

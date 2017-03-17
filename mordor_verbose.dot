@@ -1,0 +1,159 @@
+// Compiled by CJ Kucera (pez@apocalyptech.com), March 2017
+// http://github.com/apocalyptech/mordormissions/
+//
+// Released into public domain, or specifically CC0 1.0 Universal
+// https://creativecommons.org/publicdomain/zero/1.0/
+
+digraph mordor_verbose {
+
+    // This version has separate nodes for mission unlocks.
+    // See mordor_condensed.dot for a version which doesn't.
+
+    labelloc = "t";
+    fontsize = 25;
+    label = <<i>Shadow of Mordor</i> mission/unlock tree (verbose)<br/><sup>http://github.com/apocalyptech/mordormissions/<br/>CC0 1.0 Universal - https://creativecommons.org/publicdomain/zero/1.0/</sup>>;
+
+    // Main storyline missions
+    {
+        node [style=filled fillcolor=darkorchid1];
+
+        label_main [label="Main/Boss"];
+
+        prologue [label="Prologue / Entering Mordor"];
+        kill [label=<<i>Warchief Hunt - kill four Warchiefs.<br/>("</i>The Warchief<i>" mission counts as one.)</i>>];
+        captain [label="The Black Captain"];
+        brand [label=<<i>Brand the Warchiefs<br/>(brand four warchiefs)</i>>];
+        lord [label="Lord of Mordor"];
+        flames [label="Mordor in Flames"];
+    }
+
+    // Hirgon Missions
+    {
+        node [style=filled fillcolor=chocolate];
+
+        label_hirgon [label="Hirgon"];
+
+        slaver [label="The Slaver"];
+        outcasts [label="The Outcasts"];
+        monument [label="The Dark Monument"];
+    }
+
+    // Gollum Missions
+    {
+        node [style=filled fillcolor=gray50];
+
+        label_gollum [label="Gollum"];
+
+        interested [label="An Interested Party"];
+        shattered [label="Shattered Memories"];
+        truth [label="The One Truth"];
+    }
+    
+    // Ratbag Missions
+    {
+        node [style=filled fillcolor=darkolivegreen4];
+
+        label_ratbag [label="Ratbag"];
+
+        spirit [label="The Spirit of Mordor"];
+        climbing [label="Climbing the Ranks"];
+        warchief [label="The Warchief"];
+    }
+
+    // Queen Marwen + Lithariel missions
+    {
+        node [style=filled fillcolor=deepskyblue3];
+
+        label_queen [label="Queen Marwen + Lithariel"];
+
+        messenger [label="The Messenger"];
+        queen [label="Queen of the Shore"];
+        power [label="The Power of the Wraith"];
+        cure [label="The Cure"];
+        rescue [label="The Rescue"];
+    }
+
+    // Torvin missions
+    {
+        node [style=filled fillcolor=firebrick1];
+
+        label_torvin [label="Torvin"];
+
+        game [label="Big Game"];
+        partners [label="Hunting Partners"];
+        graug [label="The Great White Graug"];
+    }
+
+    // Unlocks
+    {
+        node [style=filled fillcolor=green];
+
+        label_unlocks [label="Unlocks"];
+
+        wraith_flash_ghuls [label=<Wraith Flash,<br/><i>Ghuls</i>>];
+        poison_outcast2 [label=<Poison <i>(grog barrels),<br/>Outcast Rescue missions<br/>(batch 2)</i>>];
+        shadow_strike [label="Shadow Strike"];
+        caragor_hunter [label="Caragor Hunter"];
+        graug_hunter [label="Graug Hunter"];
+        skill_brand [label="Brand"];
+
+        outcast_rescue1 [label=<<i>Outcast Rescue missions<br/>(batch 1)</i>>];
+        warchiefs_avail [label=<<i>Warchiefs</i>>];
+        nurn [label=<<i>Nurn</i>>];
+        command [label=<<i>Command Branded Uruks</i>>];
+        power_struggles [label=<<i>Power Struggles,<br/>Vendetta missions</i>>];
+    }
+
+    // Key
+    subgraph cluster_key {
+        edge[style=invis];
+        label = "Key";
+        label_main -> label_hirgon -> label_gollum -> label_ratbag -> label_queen -> label_torvin -> label_unlocks;
+    }
+
+    // Missions
+    prologue -> slaver;
+    prologue -> spirit;
+    slaver -> interested;
+    spirit -> climbing;
+    spirit -> shattered;
+    spirit -> outcasts;
+    interested -> shattered;
+    interested -> outcasts;
+    interested -> climbing;
+    climbing -> warchief;
+    climbing -> kill;
+    shattered -> truth;
+    warchief -> monument;
+    kill -> monument;
+    truth -> captain;
+    outcasts -> monument;
+    monument -> captain;
+    captain -> messenger;
+    messenger -> queen;
+    messenger -> game;
+    queen -> power;
+    game -> partners;
+    partners -> graug;
+    power -> cure;
+    power -> brand;
+    brand -> lord;
+    cure -> rescue;
+    rescue -> lord;
+    graug -> lord;
+    lord -> flames;
+
+    // Unlocks
+    shattered -> wraith_flash_ghuls;
+    outcasts -> poison_outcast2;
+    truth -> shadow_strike;
+    game -> caragor_hunter;
+    partners -> graug_hunter;
+    queen -> skill_brand;
+    spirit -> power_struggles;
+    slaver -> outcast_rescue1;
+    climbing -> warchiefs_avail;
+    messenger -> nurn;
+    power -> command;
+
+}
